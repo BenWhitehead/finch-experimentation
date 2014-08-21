@@ -22,5 +22,5 @@ object Server extends App {
     .codec(RichHttp[HttpRequest](Http()))
     .bindTo(new InetSocketAddress(port))
     .name("finch-experimentation")
-    .build(AccessLog andThen HandleErrors andThen router.toService)
+    .build(HandleErrors andThen router.toService)
 }

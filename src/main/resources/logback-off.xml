@@ -9,7 +9,7 @@
     </encoder>
   </appender>
 
-  <logger name="access-log" level="trace"/>
+  <logger name="access-log" level="OFF"/>
   <logger name="access-log-combined" level="OFF"/>
 
   <root level="debug">
