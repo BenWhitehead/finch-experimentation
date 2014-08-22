@@ -35,7 +35,7 @@ package object finch {
     lazy val common = org.slf4j.LoggerFactory.getLogger("access-log")
     lazy val combined = org.slf4j.LoggerFactory.getLogger("access-log-combined")
     def apply(request: HttpRequest, service: Service[HttpRequest, HttpResponse]) = {
-      if (false && common.isTraceEnabled || combined.isTraceEnabled) {
+      if (common.isTraceEnabled || combined.isTraceEnabled) {
         service(request) flatMap { case resp =>
           val reqHeaders = request.headers()
           val remoteHost = request.remoteHost
