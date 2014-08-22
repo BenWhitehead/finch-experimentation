@@ -12,7 +12,9 @@
   <logger name="access-log" level="trace"/>
   <logger name="access-log-combined" level="OFF"/>
 
-  <root level="debug">
+  <logger name="io.github.benwhitehead.scala.finch" level="debug"/>
+
+  <root level="info">
     <appender-ref ref="STDOUT"/>
   </root>
 </configuration>
