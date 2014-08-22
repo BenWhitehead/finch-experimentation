@@ -46,10 +46,10 @@ package object finch {
           val statusCode = resp.statusCode
           val responseBytes = asOpt(resp.headers().get("Content-Length")).getOrElse("-")
 
-          if (common.isInfoEnabled) {
+          if (common.isTraceEnabled) {
             common.trace(f"""$remoteHost%s $identd%s $user%s [$requestEndTime%s] "$reqResource%s" $statusCode%d $responseBytes%s""")
           }
-          if (combined.isInfoEnabled) {
+          if (combined.isTraceEnabled) {
             val referer = asOpt(reqHeaders.get("Referer")).getOrElse("-")
             val userAgent = asOpt(reqHeaders.get("User-Agent")).getOrElse("-")
             combined.trace(f"""$remoteHost%s $identd%s $user%s [$requestEndTime%s] "$reqResource%s" $statusCode%d $responseBytes%s "$referer%s" "$userAgent%s"""")
