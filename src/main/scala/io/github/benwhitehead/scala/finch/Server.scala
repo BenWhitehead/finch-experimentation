@@ -57,7 +57,7 @@ object Server extends App with Lifecycle with Stats with Admin {
       ServerBuilder()
         .codec(RichHttp[HttpRequest](Http()))
         .bindTo(new InetSocketAddress(port))
-        .name("srv-finch")
+        .name("srv/http/finch")
         .build(StatsFilter andThen HandleErrors andThen router.toService)
     )
 
