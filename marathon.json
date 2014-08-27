@@ -1,5 +1,5 @@
 {
-  "cmd": "java -jar finch-experimentation-assembly-0.1-SNAPSHOT.jar $PORT0",
+  "cmd": "cd $MESOS_SANDBOX && java -jar finch-experimentation-assembly-0.1-SNAPSHOT.jar $PORT0",
   "cpus": 2,
   "id": "finch-experimentation",
   "instances": 1,
@@ -12,7 +12,10 @@
     ["hostname", "UNIQUE"]
   ],
   "container": {
-    "image": "docker:///dockeruser/oracle-java7:latest",
-    "options": []
+    "type": "DOCKER",
+    "docker": {
+      "image": "dockeruser/oracle-java7:latest"
+    },
+    "volumes": []
   }
 }
