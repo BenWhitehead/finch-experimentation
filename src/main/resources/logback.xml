@@ -9,7 +9,7 @@
     </encoder>
   </appender>
 
-  <logger name="access-log" level="trace"/>
+  <logger name="access-log" level="off"/>
   <logger name="access-log-combined" level="OFF"/>
 
   <logger name="io.github.benwhitehead.scala.finch" level="debug"/>

@@ -6,8 +6,9 @@ import com.twitter.finagle.http.path._
 import com.twitter.util.Future
 import io.finch.response.Ok
 import io.finch._
+import io.github.benwhitehead.finch.HttpEndpoint
 
-object Echo extends SimpleEndpoint {
+object Echo extends HttpEndpoint {
   def service(echo: String) = new Service[HttpRequest, HttpResponse] {
     def apply(request: HttpRequest): Future[HttpResponse] = {
       Ok(echo).toFuture

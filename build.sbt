@@ -16,15 +16,11 @@ resolvers += "Twitter" at "http://maven.twttr.com/"
 
 resolvers += "Finch.io" at "http://repo.konfettin.ru"
 
+resolvers += "BenWhitehead" at "http://storage.googleapis.com/benwhitehead_me/maven/public"
+
 libraryDependencies ++= Seq(
-  "io"              %%  "finch"             % "0.1.5",
-  "com.twitter"     %%  "finagle-stats"     % "6.20.0",
-  "com.twitter"     %% "twitter-server"     % "1.7.3",
-  "ch.qos.logback"  %   "logback-classic"   % "1.1.2",
-  "org.slf4j"       %   "slf4j-api"         % "1.7.7",
-  "org.slf4j"       %   "jul-to-slf4j"      % "1.7.7",
-  "org.slf4j"       %   "jcl-over-slf4j"    % "1.7.7",
-  "org.slf4j"       %   "log4j-over-slf4j"  % "1.7.7"
+  "io.github.benwhitehead.finch" %% "finch-server" % "0.4.1",
+  "ch.qos.logback"  %   "logback-classic"   % "1.1.2"
 )
 
 parallelExecution in Test := true
