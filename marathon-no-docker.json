@@ -1,14 +1,25 @@
 {
-  "cmd": "java -jar finch-experimentation-assembly-0.1-SNAPSHOT.jar $PORT0",
+  "cmd": "cd $MESOS_SANDBOX && java -jar finch-experimentation-assembly-*.jar -io.github.benwhitehead.finch.httpPort=$PORT0 -io.github.benwhitehead.finch.adminHttpPort=$PORT1 -com.twitter.jvm.numProcs=$CORE_COUNT",
   "cpus": 2,
   "id": "finch-experimentation-no-docker",
   "instances": 1,
   "mem": 4096,
   "ports": [7070],
   "uris": [
-    "http://storage.googleapis.com/benwhitehead/public/finch-experimentation-assembly-0.1-SNAPSHOT.jar"
+    "http://storage.googleapis.com/benwhitehead/public/finch-experimentation-assembly-0.2-SNAPSHOT.jar"
   ],
-  "constraints": [
-    ["hostname", "UNIQUE"]
+  "env": {
+    "CORE_COUNT": "2"
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 120,
+      "intervalSeconds": 30,
+      "maxConsecutiveFailures": 3,
+      "path": "/admin/ping",
+      "portIndex": 1,
+      "protocol": "HTTP",
+      "timeoutSeconds": 5
+    }
   ]
 }

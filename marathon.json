@@ -1,15 +1,12 @@
 {
-  "cmd": "cd $MESOS_SANDBOX && java -jar finch-experimentation-assembly-0.1-SNAPSHOT.jar $PORT0",
+  "cmd": "cd $MESOS_SANDBOX && java -Xms4g -Xmx4g -jar finch-experimentation-assembly-*.jar -io.github.benwhitehead.finch.httpPort=$PORT0 -io.github.benwhitehead.finch.adminHttpPort=$PORT1 -com.twitter.jvm.numProcs=$CORE_COUNT",
   "cpus": 2,
   "id": "finch-experimentation",
   "instances": 1,
   "mem": 4096,
-  "ports": [7070],
+  "ports": [7070, 9990],
   "uris": [
-    "http://storage.googleapis.com/benwhitehead/public/finch-experimentation-assembly-0.1-SNAPSHOT.jar"
-  ],
-  "constraints": [
-    ["hostname", "UNIQUE"]
+    "http://storage.googleapis.com/benwhitehead/public/finch-experimentation-assembly-0.2-SNAPSHOT.jar"
   ],
   "container": {
     "type": "DOCKER",
@@ -17,5 +14,16 @@
       "image": "dockeruser/oracle-java7:latest"
     },
     "volumes": []
-  }
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 120,
+      "intervalSeconds": 30,
+      "maxConsecutiveFailures": 3,
+      "path": "/admin/ping",
+      "portIndex": 1,
+      "protocol": "HTTP",
+      "timeoutSeconds": 5
+    }
+  ]
 }
