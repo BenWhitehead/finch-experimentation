@@ -1,5 +1,5 @@
 {
-  "cmd": "cd $MESOS_SANDBOX && java -jar finch-experimentation-assembly-*.jar -io.github.benwhitehead.finch.httpPort=$PORT0 -io.github.benwhitehead.finch.adminHttpPort=$PORT1 -com.twitter.jvm.numProcs=$CORE_COUNT",
+  "cmd": "java -jar finch-experimentation-assembly-*.jar -io.github.benwhitehead.finch.httpPort=$PORT0 -io.github.benwhitehead.finch.adminHttpPort=$PORT1 -com.twitter.jvm.numProcs=$CORE_COUNT",
   "cpus": 2,
   "id": "finch-experimentation-no-docker",
   "instances": 1,
