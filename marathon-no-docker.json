@@ -4,7 +4,7 @@
   "id": "finch-experimentation-no-docker",
   "instances": 1,
   "mem": 4096,
-  "ports": [7070],
+  "ports": [7070, 9990],
   "uris": [
     "http://storage.googleapis.com/benwhitehead/public/finch-experimentation-assembly-0.2-SNAPSHOT.jar"
   ],
